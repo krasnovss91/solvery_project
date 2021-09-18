@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  currency:
+    image: "currency"
+    container_name: "currency"
+    ports:
+      - 8100:8100
+  forex:
+    image: "forex"
+    container_name: "forex"
+    ports:
+      - 8080:8080
+    depends_on:
+      - eureka-server
+  eureka-server:
+    image: "eureka-server"
+    container_name: "eureka-server"
+    ports:
+      - 8761:8761
